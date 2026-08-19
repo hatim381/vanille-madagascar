@@ -1,65 +1,69 @@
-# Vanille de Madagascar
+# Vanille Premium de Madagascar
 
-Site vitrine statique pour la vente de gousses de vanille Bourbon premium, originaires de Sambava, Madagascar.
+Site vitrine React (Vite) pour la vente de gousses de vanille de Madagascar, en direct du producteur.
 
-## Aperçu
+## Stack
 
-Page unique HTML/CSS/JS présentant les produits, les avis clients et un formulaire de contact via WhatsApp. Les commandes sont passées directement par WhatsApp, sans panier ni paiement en ligne.
+- React 18 + Vite 5
+- CSS vanilla (`src/styles.css`), aucune dépendance UI
+- Aucun back-end : les commandes passent par WhatsApp et e-mail
 
-**Site en production :** [hatim381.github.io/vanille-madagascar](https://hatim381.github.io/vanille-madagascar)
-
-## Fonctionnalités
-
-- Présentation des produits avec prix et descriptions
-- Commande directe via WhatsApp
-- Section avis clients
-- FAQ interactive (accordéon)
-- Design responsive (mobile, tablette, desktop)
-- Animations au défilement
-- SEO optimisé (meta tags, Open Graph, Schema.org JSON-LD)
-
-## Produits proposés
-
-| Produit | Contenu | Prix |
-|---|---|---|
-| Pack Découverte | 5 gousses (~20-25g) | 8,90 € |
-| Vanille 50g | 10-12 gousses (Calibre A) | 14,90 € |
-| Vanille 100g | 20-25 gousses (Calibre A+) | 24,90 € |
-| Vanille 250g | 50-65 gousses (Calibre A+) | 54,90 € |
-
-## Stack technique
-
-- **HTML5** — structure sémantique
-- **CSS3** — variables CSS, Grid, Flexbox, animations
-- **JavaScript vanilla** — menu mobile, accordéon FAQ, IntersectionObserver
-- **Google Fonts** — Cormorant Garamond + Inter
-- **GitHub Pages** — hébergement statique gratuit
-
-Aucune dépendance, aucun outil de build requis.
-
-## Lancer en local
+## Développement
 
 ```bash
-# Ouvrir directement dans le navigateur
-open index.html
-
-# Ou servir avec Python
-python -m http.server 8000
-# puis visiter http://localhost:8000
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # génère dist/
+npm run preview  # sert dist/ en local
 ```
 
-## Structure du projet
+## Déploiement (Vercel)
+
+Importer le dépôt sur [vercel.com/new](https://vercel.com/new). Vercel détecte Vite
+automatiquement :
+
+| Réglage | Valeur |
+| --- | --- |
+| Framework Preset | Vite |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | `npm install` |
+
+Chaque push sur la branche de production déclenche un nouveau déploiement.
+
+## Structure
 
 ```
-vanille-madagascar/
-└── index.html    # Site complet (HTML + CSS + JS en un seul fichier)
+index.html                  métadonnées SEO, Open Graph, JSON-LD (Product + Offers)
+src/data.jsx                contenu éditable : tarifs, atouts, usages, avis, FAQ, contacts
+src/App.jsx                 assemblage des sections
+src/styles.css              design system (variables CSS, composants, responsive)
+src/components/Header.jsx   navigation collante
+src/components/Hero.jsx     accroche + chiffres clés
+src/components/Pricing.jsx  packs + calculateur de quantité
+src/components/Sections.jsx bandeau, qualité, usages, avis, FAQ, CTA, footer
+src/components/Icons.jsx    logo, icône WhatsApp, illustration des gousses
+src/hooks/useReveal.js      apparition au scroll + ombre du header
+legacy/index.html           ancienne page statique, conservée pour référence
 ```
 
-## Déploiement
+## Modifier les prix ou le contenu
 
-Le site est hébergé sur **GitHub Pages**. Chaque push sur la branche `main` met automatiquement à jour le site en production.
+Tout est centralisé dans `src/data.jsx` :
 
-## Contact
+- `PACKS` — les trois formats affichés (quantité, prix, arguments)
+- `TIERS` — la grille dégressive utilisée par le calculateur (1,60 € / 2,00 € / 2,40 €)
+- `WHATSAPP`, `EMAIL` — coordonnées de commande
+- `FEATURES`, `USES`, `REVIEWS`, `FAQ` — le reste du contenu éditorial
 
-- **WhatsApp :** +33 6 67 08 00 50
-- **Email :** hatimadnanepro@gmail.com
+Les liens WhatsApp sont générés avec un message pré-rempli incluant la quantité et le total.
+
+## Tarifs actuels
+
+| Quantité | Prix | Prix / gousse |
+| --- | --- | --- |
+| 5 gousses | 12 € | 2,40 € |
+| 10 gousses | 20 € | 2,00 € |
+| 50 gousses | 80 € | 1,60 € |
+
+Au-delà de 100 gousses : tarif sur demande.
