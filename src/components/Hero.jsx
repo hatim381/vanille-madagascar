@@ -1,11 +1,7 @@
 import { PodsArt } from './Icons'
 import { waLink } from '../data'
 
-const STATS = [
-  ['1,60 €', 'prix mini / gousse'],
-  ['0', 'intermédiaire'],
-  ['24-48 h', 'expédition']
-]
+const STATS = [['12 €', 'dès 5 gousses'], ['20 €', '10 gousses'], ['80 €', '50 gousses']]
 
 export default function Hero() {
   return (
@@ -13,13 +9,9 @@ export default function Hero() {
       <div className="wrap">
         <div>
           <span className="flag">🇲🇬 Sourcé à Madagascar · Sans intermédiaire</span>
-          <h1>
-            La vanille, <em>telle qu&apos;elle sort</em> de la récolte.
-          </h1>
+          <h1>Vanille Bourbon Premium de Madagascar 🇲🇬</h1>
           <p className="lead">
-            Des gousses de vanille premium achetées directement auprès du producteur à Madagascar.
-            Une vanille très fraîche, issue d&apos;une récolte récente&nbsp;: souple, charnue et
-            intensément parfumée.
+            Des gousses souples, charnues et intensément parfumées, directement issues de Madagascar.
           </p>
           <div className="hero-cta">
             <a className="btn btn-wa" href={waLink()} target="_blank" rel="noopener noreferrer">
@@ -39,8 +31,8 @@ export default function Hero() {
 
         <div className="hero-visual">
           <div className="badge-float">
-            <b>−33 %</b>
-            <span>dès 50 gousses</span>
+            <b>Direct</b>
+            <span>producteur</span>
           </div>
           <figure className="pods">
             <PodsArt />

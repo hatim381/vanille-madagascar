@@ -1,5 +1,5 @@
-import { FEATURES, USES, REVIEWS, FAQ, waLink, EMAIL, WHATSAPP_DISPLAY, WHATSAPP } from '../data'
-import { WhatsAppIcon } from './Icons'
+import { FEATURES, USES, FAQ, waLink, WHATSAPP_DISPLAY, WHATSAPP } from '../data'
+import { PodsArt, WhatsAppIcon } from './Icons'
 
 export function Strip() {
   const items = [
@@ -25,11 +25,10 @@ export function Quality() {
     <section id="qualite" className="why">
       <div className="wrap">
         <div className="head rv">
-          <span className="eyebrow">Ce qui change</span>
-          <h2>Du producteur à votre cuisine, rien entre les deux</h2>
+          <span className="eyebrow">La sélection</span>
+          <h2>Pourquoi choisir notre vanille ?</h2>
           <p>
-            Chaque intermédiaire supprimé, c&apos;est du temps de stockage en moins et de la
-            fraîcheur en plus dans la gousse.
+            Une origine claire, une relation directe et les qualités recherchées dans une vanille premium.
           </p>
         </div>
         <div className="grid4">
@@ -64,10 +63,9 @@ export function Uses() {
       <div className="wrap">
         <div className="head rv">
           <span className="eyebrow">Usages</span>
-          <h2>Une gousse, beaucoup de possibilités</h2>
+          <h2>Une vanille pour toutes tes préparations</h2>
           <p>
-            Fendue et grattée, infusée entière, ou séchée puis mixée avec du sucre — rien ne se
-            perd.
+            Des usages du quotidien aux préparations artisanales, la vanille accompagne toutes vos envies.
           </p>
         </div>
         <div className="uses rv">
@@ -82,23 +80,38 @@ export function Uses() {
   )
 }
 
-export function Reviews() {
+export function Product() {
   return (
-    <section id="avis" className="why">
-      <div className="wrap">
-        <div className="head center rv">
-          <span className="eyebrow">Avis</span>
-          <h2>Ce qu&apos;en disent les clients</h2>
+    <section id="produit" className="product-section">
+      <div className="wrap product-grid">
+        <figure className="product-visual">
+          <div className="product-art"><span aria-hidden="true">✦</span><PodsArt /></div>
+          <figcaption>Une matière brute, une présence intense.</figcaption>
+        </figure>
+        <div className="head rv">
+          <span className="eyebrow">Le produit</span>
+          <h2>Une gousse qui se remarque</h2>
+          <p>Texture souple, aspect charnu, parfum intense : les qualités essentielles sont au centre de chaque format.</p>
+          <div className="product-points">
+            <span>Texture souple</span><span>Aspect charnu</span><span>Parfum intense</span>
+          </div>
         </div>
-        <div className="grid3">
-          {REVIEWS.map((r) => (
-            <blockquote className="quote rv" key={r.who}>
-              <div className="stars">★★★★★</div>
-              <p>« {r.text} »</p>
-              <span className="who">{r.who}</span>
-            </blockquote>
+      </div>
+    </section>
+  )
+}
+
+export function HowToOrder() {
+  return (
+    <section id="commander" className="how-section">
+      <div className="wrap">
+        <div className="head center rv"><span className="eyebrow">Simple et direct</span><h2>Comment commander</h2></div>
+        <div className="steps">
+          {['Choisis ton format', 'Clique sur WhatsApp', 'Confirme ta commande'].map((label, i) => (
+            <div className="step rv" key={label}><span>0{i + 1}</span><h3>{label}</h3></div>
           ))}
         </div>
+        <div className="center-action"><a className="btn btn-wa" href={waLink()} target="_blank" rel="noopener noreferrer"><WhatsAppIcon size={18} /> Commander sur WhatsApp</a></div>
       </div>
     </section>
   )
@@ -130,18 +143,10 @@ export function Cta() {
     <section className="cta">
       <div className="wrap">
         <span className="eyebrow">Commander</span>
-        <h2>Une vanille fraîche, à prix juste</h2>
+        <h2>Envie de goûter à une vraie vanille de Madagascar ?</h2>
         <p>Dites-nous simplement combien de gousses vous voulez. On s&apos;occupe du reste.</p>
         <div className="row">
-          <a className="btn btn-wa" href={waLink()} target="_blank" rel="noopener noreferrer">
-            WhatsApp · {WHATSAPP_DISPLAY}
-          </a>
-          <a
-            className="btn btn-ghost"
-            href={`mailto:${EMAIL}?subject=${encodeURIComponent('Commande gousses de vanille')}`}
-          >
-            Écrire un e-mail
-          </a>
+          <a className="btn btn-wa" href={waLink()} target="_blank" rel="noopener noreferrer"><WhatsAppIcon size={18} /> Commander sur WhatsApp</a>
         </div>
       </div>
     </section>
@@ -152,12 +157,9 @@ export function Footer() {
   return (
     <footer>
       <div className="wrap fgrid">
-        <div>© {new Date().getFullYear()} Vanille de Madagascar — Direct producteur 🇲🇬</div>
+        <div>© {new Date().getFullYear()} Vanille Premium de Madagascar 🇲🇬<small>Gousses de vanille premium directement issues de Madagascar.</small></div>
         <div>
-          <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer">
-            WhatsApp
-          </a>{' '}
-          · <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          WhatsApp : <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer">{WHATSAPP_DISPLAY}</a>
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Pricing from './components/Pricing'
-import { Strip, Quality, Uses, Reviews, Faq, Cta, Footer, Fab } from './components/Sections'
+import { Strip, Quality, Uses, Product, HowToOrder, Faq, Cta, Footer, Fab } from './components/Sections'
 import { useReveal, useScrolled } from './hooks/useReveal'
 
 export default function App() {
@@ -16,8 +16,9 @@ export default function App() {
         <Strip />
         <Pricing />
         <Quality />
+        <Product />
         <Uses />
-        <Reviews />
+        <HowToOrder />
         <Faq />
         <Cta />
       </main>

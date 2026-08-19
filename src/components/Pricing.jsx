@@ -33,7 +33,7 @@ function Calculator() {
         </div>
         <a
           className="btn btn-wa"
-          href={waLink(`Bonjour, je souhaite commander ${qty} gousses de vanille (${eur(total)} €).`)}
+          href={waLink(`Bonjour, je souhaite commander ${qty} gousses de vanille premium de Madagascar à ${eur(total)} €.`)}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -50,10 +50,9 @@ export default function Pricing() {
       <div className="wrap">
         <div className="head center rv">
           <span className="eyebrow">Tarifs</span>
-          <h2>Plus vous commandez, moins la gousse coûte cher</h2>
+          <h2>Des formats simples, des tarifs dégressifs</h2>
           <p>
-            Trois formats, un seul et même produit. Le prix baisse simplement parce que l&apos;achat
-            au producteur se fait en plus grande quantité.
+            Choisissez le format qui correspond à votre usage, puis commandez directement sur WhatsApp.
           </p>
         </div>
 
@@ -74,9 +73,9 @@ export default function Pricing() {
                 ))}
               </ul>
               <a
-                className={'btn ' + (p.featured ? 'btn-wa' : 'btn-ghost')}
+                className={'btn btn-wa' + (p.featured ? ' btn-featured' : '')}
                 href={waLink(
-                  `Bonjour, je souhaite commander ${p.qty} gousses de vanille (${p.price} €).`
+                  `Bonjour, je souhaite commander ${p.qty} gousses de vanille premium de Madagascar à ${p.price} €.`
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

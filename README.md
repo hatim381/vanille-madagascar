@@ -6,7 +6,7 @@ Site vitrine React (Vite) pour la vente de gousses de vanille de Madagascar, en 
 
 - React 18 + Vite 5
 - CSS vanilla (`src/styles.css`), aucune dépendance UI
-- Aucun back-end : les commandes passent par WhatsApp et e-mail
+- Aucun back-end : les commandes passent par WhatsApp
 
 ## Développement
 
@@ -35,7 +35,7 @@ Chaque push sur la branche de production déclenche un nouveau déploiement.
 
 ```
 index.html                  métadonnées SEO, Open Graph, JSON-LD (Product + Offers)
-src/data.jsx                contenu éditable : tarifs, atouts, usages, avis, FAQ, contacts
+src/data.jsx                contenu éditable : tarifs, atouts, usages, FAQ et contact WhatsApp
 src/App.jsx                 assemblage des sections
 src/styles.css              design system (variables CSS, composants, responsive)
 src/components/Header.jsx   navigation collante
@@ -53,8 +53,8 @@ Tout est centralisé dans `src/data.jsx` :
 
 - `PACKS` — les trois formats affichés (quantité, prix, arguments)
 - `TIERS` — la grille dégressive utilisée par le calculateur (1,60 € / 2,00 € / 2,40 €)
-- `WHATSAPP`, `EMAIL` — coordonnées de commande
-- `FEATURES`, `USES`, `REVIEWS`, `FAQ` — le reste du contenu éditorial
+- `WHATSAPP` — coordonnées de commande
+- `FEATURES`, `USES`, `FAQ` — le reste du contenu éditorial
 
 Les liens WhatsApp sont générés avec un message pré-rempli incluant la quantité et le total.
 
